@@ -1,0 +1,9 @@
+.tableMobileContainer {
+
+}
+
+@media (max-width: 768px) {
+  .tableMobileContainer {
+    display: none;
+  }
+}

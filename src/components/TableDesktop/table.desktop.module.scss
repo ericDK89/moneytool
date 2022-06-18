@@ -1,0 +1,44 @@
+.tableDesktopContainer {
+  width: 100%;
+  margin-top: 4rem;
+  text-align: left;
+  border-spacing: 0 0.5rem;
+}
+
+.tableDesktopHeader {
+  th {
+    line-height: 1.5rem;
+    color: var(--black-600);
+    padding: 0 2rem 1.25rem;
+  }
+}
+
+.tableDesktopBody {
+  tr {
+    background-color: var(--white-50);
+  }
+
+  td {
+    padding: 1.25rem 2rem;
+
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-end-start-radius: 5px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-end-end-radius: 5px;
+    }
+  }
+}
+
+.tableDesktopWithdraw {
+  color: var(--red-500);
+}
+
+@media (max-width: 768px) {
+  .tableDesktopContainer {
+    display: none;
+  }
+}
