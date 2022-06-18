@@ -1,8 +1,53 @@
 .tableMobileContainer {
+  width: 100%;
+  padding: 0 1.5rem;
 
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    h1 {
+      font-weight: normal;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      color: var(--black-500);
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.3125rem;
+    }
+  }
 }
 
-@media (max-width: 768px) {
+.tableMobileContent {
+  background-color: var(--white-50);
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
+  }
+
+  h2 {
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+  }
+
+  div {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
   .tableMobileContainer {
     display: none;
   }

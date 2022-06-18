@@ -3,12 +3,12 @@ import styles from './table.mobile.module.scss';
 export function TableMobile() {
   return (
     <article className={styles.tableMobileContainer}>
-      <div>
+      <header>
         <h1>Listagem</h1>
         <span>4 itens</span>
-      </div>
+      </header>
 
-      <section>
+      <section className={styles.tableMobileContent}>
         <p>Desenvolvimento de site</p>
         <h2>R$ 12.000,00</h2>
         <div>
