@@ -15,7 +15,7 @@ export function TableDesktop() {
         <tbody className={styles.tableDesktopBody}>
           <tr>
             <td>Desenvolvimento de site</td>
-            <td>R$ 1700,00</td>
+            <td className={styles.tableDesktopDeposit}>R$ 1700,00</td>
             <td>Venda</td>
             <td>13/04/2022</td>
           </tr>

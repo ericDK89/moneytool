@@ -37,7 +37,11 @@
   color: var(--red-500);
 }
 
-@media (max-width: 768px) {
+.tableDesktopDeposit {
+  color: var(--green-500);
+}
+
+@media (max-width: 767px) {
   .tableDesktopContainer {
     display: none;
   }

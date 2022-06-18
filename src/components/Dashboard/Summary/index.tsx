@@ -15,6 +15,7 @@ export function Summary(props: SummaryProps) {
         <img src={props.img} alt={props.imgAlt} />
       </header>
       <h1>R$ {props.amount}</h1>
+      <span className={styles.lastSummarySpan}>Última entrada dia 13 de abril</span>
     </section>
   );
 }

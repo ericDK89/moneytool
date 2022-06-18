@@ -6,3 +6,9 @@
   margin-top: calc(0px - 4.5rem);
   overflow-x: auto;
 }
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    gap: 1rem;
+  }
+}
