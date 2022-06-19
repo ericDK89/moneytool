@@ -8,6 +8,8 @@
   --white-50: #fcfcfc;
   --white-100: #e5e5e5;
 
+  --black-200: #e7e9ee;
+  --black-300: #d7d7d7;
   --black-400: #969cb2;
   --black-500: #363f5f;
   --black-600: #3b3b3b;
@@ -21,7 +23,6 @@
 
 :focus {
   outline: transparent;
-  box-shadow: 0 0 0 2px var(--red-500);
 }
 
 @media (max-width: 1080px) {
@@ -56,4 +57,19 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .ReactModal__Overlay {
+    transform: translateY(100%);
+    transition: transform 250ms linear;
+  }
+
+  .ReactModal__Overlay--after-open {
+    transform: translateY(0%);
+  }
+
+  .ReactModal__Overlay--before-close {
+    transform: translateY(100%);
+  }
 }
