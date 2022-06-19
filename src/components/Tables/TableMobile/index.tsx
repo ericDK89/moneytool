@@ -1,4 +1,9 @@
+import { TransactionList } from "../../../context/NewTransactionContext";
 import styles from "./table.mobile.module.scss";
+
+interface TableMobileProps {
+  transactionList: TransactionList[];
+}
 
 export function TableMobile() {
   return (

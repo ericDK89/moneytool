@@ -28,13 +28,15 @@ export function NewTransactionContextProvider({
   const [transactionList, setTransactionList] = useState<TransactionList[]>([]);
 
   useEffect(() => {
-    api.get("/transactions").then((res) => setTransactionList(res.data.transactions));
+    api
+      .get("/transactions")
+      .then((res) => setTransactionList(res.data.transactions));
   }, []);
 
   console.log(transactionList);
 
   return (
-    <NewTransactionContext.Provider value={transactionList}>
+    <NewTransactionContext.Provider value={{ transactionList }}>
       {children}
     </NewTransactionContext.Provider>
   );

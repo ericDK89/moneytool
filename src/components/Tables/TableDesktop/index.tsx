@@ -1,4 +1,9 @@
+import { TransactionList } from "../../../context/NewTransactionContext";
 import styles from "./table.desktop.module.scss";
+
+interface TableDesktopProps {
+  transactionList: TransactionList[];
+}
 
 export function TableDesktop() {
   return (
