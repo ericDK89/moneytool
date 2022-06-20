@@ -2,6 +2,10 @@
   background-color: var(--red-600);
 }
 
+.headerContainerDark {
+  background-color: var(--red-700);
+}
+
 .headerContent {
   max-width: 70rem;
   width: 100%;
@@ -13,7 +17,7 @@
   height: 13.25rem;
 
   h1 {
-    color: var(--white-50);
+    color: var(--white-200);
   }
 
   button {

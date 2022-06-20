@@ -28,7 +28,10 @@ export function TableMobile({ transactionList }: TableMobileProps) {
                   : styles.tableMobileWithdraw
               }
             >
-              {item.amount}
+              {new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(item.amount)}
             </h2>
             <div>
               <span>{item.category}</span>

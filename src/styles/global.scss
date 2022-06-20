@@ -7,17 +7,19 @@
 :root {
   --white-50: #fcfcfc;
   --white-100: #e5e5e5;
+  --white-200: #d6d6d6;
 
   --black-200: #e7e9ee;
   --black-300: #d7d7d7;
   --black-400: #969cb2;
-  --black-500: #363f5f;
+  --black-500: #525252;
   --black-600: #3b3b3b;
 
   --green-500: #12a454;
 
   --red-500: #f93d4e;
   --red-600: #b93c47;
+  --red-650: #974951;
   --red-700: #7a3b41;
 }
 
@@ -39,7 +41,8 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-  background-color: var(--white-100);
+  // background-color: var(--white-100);
+  background-color: var(--black-600);
 }
 
 body,

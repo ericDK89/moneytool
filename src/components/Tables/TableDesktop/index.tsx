@@ -29,7 +29,10 @@ export function TableDesktop({ transactionList }: TableDesktopProps) {
                       : styles.tableDesktopWithdraw
                   }
                 >
-                  {item.amount}
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(item.amount)}
                 </td>
                 <td>{item.category}</td>
                 <td>{item.createdAt.toString()}</td>

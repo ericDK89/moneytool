@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { createServer, Model } from "miragejs";
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -19,7 +20,7 @@ createServer({
           amount: 12000,
           type: "deposit",
           category: "Venda",
-          createdAt: new Date(),
+          createdAt: format(new Date("2022-06-19"), "dd/MM/yyyy"),
         },
         {
           id: uuidV4(),
@@ -27,7 +28,7 @@ createServer({
           amount: 35,
           type: "withdraw",
           category: "Lanche",
-          createdAt: new Date(),
+          createdAt: format(new Date("2022-06-20"), "dd/MM/yyyy"),
         },
       ],
     });
@@ -41,7 +42,7 @@ createServer({
     });
 
     this.post("/transactions", (schema, request) => {
-      const createdAt = new Date();
+      const createdAt = format(new Date(), "dd/MM/yyyy");
       const id = uuidV4();
       const data = JSON.parse(request.requestBody);
       return schema.create("transaction", { id, ...data, createdAt });

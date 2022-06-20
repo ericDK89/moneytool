@@ -21,7 +21,9 @@ function App() {
 
   return (
     <NewTransactionProvider>
-      <Header openNewTransactionModal={openNewTransactionModal} />
+      <Header
+        openNewTransactionModal={openNewTransactionModal}
+      />
 
       <main className={styles.wrapper}>
         <Dashboard />

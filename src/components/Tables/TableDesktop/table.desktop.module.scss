@@ -15,7 +15,8 @@
 
 .tableDesktopBody {
   tr {
-    background-color: var(--white-50);
+    background-color: var(--black-500);
+    color: var(--white-200);
   }
 
   td {
@@ -24,6 +25,7 @@
     &:first-child {
       border-top-left-radius: 5px;
       border-end-start-radius: 5px;
+      color: var(--white-50);
     }
 
     &:last-child {

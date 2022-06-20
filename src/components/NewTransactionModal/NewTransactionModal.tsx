@@ -49,7 +49,7 @@ export function NewTransactionModal({
 
   function createAmount(e: ChangeEvent<HTMLInputElement>) {
     e.target.setCustomValidity("");
-    const transactionAmount = Number(e.target.value);
+    const transactionAmount = e.target.valueAsNumber;
     setAmount(transactionAmount);
   }
 
