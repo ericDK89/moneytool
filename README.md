@@ -35,6 +35,7 @@ $ yarn dev
 
 ## 💻 Projeto
 
-Money Tool tem como objetivo ajudar a controlar as suas transações em dinheiro, podendo anotar o que entrou e saiu, a quantidade e a data da transação. 
+Money Tool tem como objetivo ajudar a controlar as suas transações em dinheiro, podendo anotar o que entrou e saiu, a quantidade e a data da transação.
+O projeto foi feito utilizando o MirageJs para simular uma API, e tem total responsividade com telas menores e mobile.
 
 Feito por Eric Macedo 🌌  [LinkedIn](https://www.linkedin.com/in/eric-macedo-dev/)
