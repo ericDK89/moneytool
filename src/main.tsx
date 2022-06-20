@@ -12,22 +12,22 @@ createServer({
 
   seeds(server) {
     server.db.loadData({
-      transaction: [
+      transactions: [
         {
           id: uuidV4(),
           title: "Desenvolvimento de site",
-          amount: 17000,
+          amount: 12000,
           type: "deposit",
           category: "Venda",
-          createdAt: new Date("2022-06-19"),
+          createdAt: new Date(),
         },
         {
           id: uuidV4(),
-          title: "Lanche",
-          amount: 30,
+          title: "Pizza",
+          amount: 35,
           type: "withdraw",
-          category: "Comida",
-          createdAt: new Date("2022-06-20"),
+          category: "Lanche",
+          createdAt: new Date(),
         },
       ],
     });
@@ -36,12 +36,15 @@ createServer({
   routes() {
     this.namespace = "/api";
 
-    this.get("/transactions");
+    this.get("/transactions", () => {
+      return this.schema.all("transaction");
+    });
 
     this.post("/transactions", (schema, request) => {
+      const createdAt = new Date();
+      const id = uuidV4();
       const data = JSON.parse(request.requestBody);
-
-      return schema.create("transactions", data);
+      return schema.create("transaction", { id, ...data, createdAt });
     });
   },
 });

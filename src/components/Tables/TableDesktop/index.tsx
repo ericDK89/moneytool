@@ -5,7 +5,7 @@ interface TableDesktopProps {
   transactionList: TransactionList[];
 }
 
-export function TableDesktop() {
+export function TableDesktop({ transactionList }: TableDesktopProps) {
   return (
     <section>
       <table className={styles.tableDesktopContainer}>
@@ -18,18 +18,24 @@ export function TableDesktop() {
           </tr>
         </thead>
         <tbody className={styles.tableDesktopBody}>
-          <tr>
-            <td>Desenvolvimento de site</td>
-            <td className={styles.tableDesktopDeposit}>R$ 1700,00</td>
-            <td>Venda</td>
-            <td>13/04/2022</td>
-          </tr>
-          <tr>
-            <td>Lanche</td>
-            <td className={styles.tableDesktopWithdraw}>- R$ 30,00</td>
-            <td>Comida</td>
-            <td>15/04/2022</td>
-          </tr>
+          {transactionList.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.title}</td>
+                <td
+                  className={
+                    item.type === "deposit"
+                      ? styles.tableDesktopDeposit
+                      : styles.tableDesktopWithdraw
+                  }
+                >
+                  {item.amount}
+                </td>
+                <td>{item.category}</td>
+                <td>{item.createdAt.toString()}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </section>

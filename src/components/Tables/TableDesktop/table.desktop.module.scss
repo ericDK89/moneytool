@@ -35,6 +35,11 @@
 
 .tableDesktopWithdraw {
   color: var(--red-500);
+
+  &::before {
+    content: "-";
+    margin-right: 7px;
+  }
 }
 
 .tableDesktopDeposit {

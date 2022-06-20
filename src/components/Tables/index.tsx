@@ -4,12 +4,12 @@ import { TableMobile } from "./TableMobile";
 
 export function Tables() {
 
-const {transactionList} = useTransaction()
+  const {transactionList} = useTransaction()
 
   return (
     <>
-      <TableDesktop />
-      <TableMobile />
+      <TableDesktop transactionList={transactionList}/>
+      <TableMobile transactionList={transactionList}/>
     </>
   );
 }

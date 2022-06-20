@@ -5,30 +5,38 @@ interface TableMobileProps {
   transactionList: TransactionList[];
 }
 
-export function TableMobile() {
+export function TableMobile({ transactionList }: TableMobileProps) {
   return (
     <article className={styles.tableMobileContainer}>
       <header>
         <h1>Listagem</h1>
-        <span>4 itens</span>
+        <span>
+          {transactionList.length === 0
+            ? "Sem itens"
+            : `${transactionList.length} item(s)`}
+        </span>
       </header>
 
-      <section className={styles.tableMobileContent}>
-        <p>Desenvolvimento de site</p>
-        <h2 className={styles.tableMobileDeposit}>R$ 12.000,00</h2>
-        <div>
-          <span>Vendas</span>
-          <time>13/04/2022</time>
-        </div>
-      </section>
-      <section className={styles.tableMobileContent}>
-        <p>Cachorro quente</p>
-        <h2 className={styles.tableMobileWithdraw}>R$ 25,00</h2>
-        <div>
-          <span>Lanche</span>
-          <time>12/04/2022</time>
-        </div>
-      </section>
+      {transactionList.map((item) => {
+        return (
+          <section key={item.id} className={styles.tableMobileContent}>
+            <p>{item.title}</p>
+            <h2
+              className={
+                item.type === "deposit"
+                  ? styles.tableMobileDeposit
+                  : styles.tableMobileWithdraw
+              }
+            >
+              {item.amount}
+            </h2>
+            <div>
+              <span>{item.category}</span>
+              <time>{item.createdAt.toString()}</time>
+            </div>
+          </section>
+        );
+      })}
     </article>
   );
 }

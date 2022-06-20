@@ -3,7 +3,8 @@ import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { NewTransactionModal } from "./components/NewTransactionModal/NewTransactionModal";
 import { Tables } from "./components/Tables";
-import { NewTransactionContextProvider } from "./context/NewTransactionContext";
+import { NewTransactionProvider } from "./context/NewTransactionContext";
+
 import styles from "./styles/wrapper.module.scss";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   }
 
   return (
-    <NewTransactionContextProvider>
+    <NewTransactionProvider>
       <Header openNewTransactionModal={openNewTransactionModal} />
 
       <main className={styles.wrapper}>
@@ -33,7 +34,7 @@ function App() {
           closeNewTransactionModal={closeNewTransactionModal}
         />
       </section>
-    </NewTransactionContextProvider>
+    </NewTransactionProvider>
   );
 }
 

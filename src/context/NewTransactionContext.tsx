@@ -12,19 +12,22 @@ export interface TransactionList {
 
 interface NewTransactionContextProps {
   transactionList: TransactionList[];
+  createNewTransaction: (data: CreateNewTransaction) => Promise<void>;
 }
 
-interface NewTransactionContextProviderProps {
+interface NewTransactionProviderProps {
   children: ReactNode;
 }
+
+type CreateNewTransaction = Omit<TransactionList, "id" | "createdAt">;
 
 export const NewTransactionContext = createContext(
   {} as NewTransactionContextProps
 );
 
-export function NewTransactionContextProvider({
+export function NewTransactionProvider({
   children,
-}: NewTransactionContextProviderProps) {
+}: NewTransactionProviderProps) {
   const [transactionList, setTransactionList] = useState<TransactionList[]>([]);
 
   useEffect(() => {
@@ -33,10 +36,18 @@ export function NewTransactionContextProvider({
       .then((res) => setTransactionList(res.data.transactions));
   }, []);
 
-  console.log(transactionList);
+  async function createNewTransaction(
+    data: CreateNewTransaction
+  ): Promise<void> {
+    const res = await api.post("/transactions", data);
+    const { transaction } = res.data;
+    setTransactionList((previousState) => [...previousState, transaction]);
+  }
 
   return (
-    <NewTransactionContext.Provider value={{ transactionList }}>
+    <NewTransactionContext.Provider
+      value={{ transactionList, createNewTransaction }}
+    >
       {children}
     </NewTransactionContext.Provider>
   );

@@ -86,6 +86,14 @@
   }
 }
 
+.depositButton {
+  background-color: rgba($color: #12a454, $alpha: 0.1);
+}
+
+.withdrawButton {
+  background-color: rgba($color: #f93d4e, $alpha: 0.1);
+}
+
 .submitButton {
   padding: 1.125rem 0;
   text-align: center;

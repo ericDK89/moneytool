@@ -1,8 +1,9 @@
-import { ChangeEvent, InvalidEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import Modal from "react-modal";
 import closeImg from "../../assets/images/close.svg";
 import incomeImg from "../../assets/images/income.svg";
 import outcomeImg from "../../assets/images/outcome.svg";
+import { useTransaction } from "../../hooks/useTransaction";
 import styles from "./new.transaction.modal.module.scss";
 
 Modal.setAppElement("#root");
@@ -21,30 +22,41 @@ export function NewTransactionModal({
   const [type, setType] = useState("deposit");
   const [category, setCategory] = useState("");
 
+  const { createNewTransaction } = useTransaction();
+
+  async function handleCreateNewTransaction(e: FormEvent): Promise<void> {
+    e.preventDefault();
+
+    await createNewTransaction({
+      title,
+      amount,
+      type,
+      category,
+    });
+
+    closeNewTransactionModal();
+    setTitle("");
+    setAmount(0);
+    setType("deposit");
+    setCategory("");
+  }
+
   function createTitle(e: ChangeEvent<HTMLInputElement>) {
     e.target.setCustomValidity("");
     const transactionTitle = e.target.value;
-
-    if (transactionTitle.trim().length > 0) {
-      return setTitle(transactionTitle);
-    }
+    return setTitle(transactionTitle);
   }
 
   function createAmount(e: ChangeEvent<HTMLInputElement>) {
     e.target.setCustomValidity("");
     const transactionAmount = Number(e.target.value);
-    0;
-    if (transactionAmount > 0) {
-      return setAmount(transactionAmount);
-    }
+    setAmount(transactionAmount);
   }
 
   function createCategory(e: ChangeEvent<HTMLInputElement>) {
     e.target.setCustomValidity("");
     const transactionCategory = e.target.value;
-    if (transactionCategory.trim().length > 0) {
-      setCategory(transactionCategory);
-    }
+    setCategory(transactionCategory);
   }
 
   function invalidInput(e: InvalidEvent<HTMLInputElement>) {
@@ -70,7 +82,7 @@ export function NewTransactionModal({
           </button>
         </header>
 
-        <form>
+        <form onSubmit={handleCreateNewTransaction}>
           <input
             placeholder="Nome"
             onChange={createTitle}
@@ -88,10 +100,18 @@ export function NewTransactionModal({
           />
 
           <div className={styles.IncomeAndOutcomeButtons}>
-            <button onClick={() => setType("deposit")}>
+            <button
+              onClick={() => setType("deposit")}
+              type="button"
+              className={type === "deposit" ? styles.depositButton : ""}
+            >
               <img src={incomeImg} alt="Depositando" /> Entrada
             </button>
-            <button onClick={() => setType("withdraw")}>
+            <button
+              onClick={() => setType("withdraw")}
+              type="button"
+              className={type === "withdraw" ? styles.withdrawButton : ""}
+            >
               <img src={outcomeImg} alt="Sacando" /> Saída
             </button>
           </div>
